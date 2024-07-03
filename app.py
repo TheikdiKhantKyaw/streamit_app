@@ -65,7 +65,7 @@ def predict_image(model, image, class_labels):
     return  predicted_label
 
 # Create Streamlit app
-# st.title("Sea Life Image Classifier")
+st.title("Sea Life Image Classifier")
 
 # File uploader
 uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "jpeg", "png"])
