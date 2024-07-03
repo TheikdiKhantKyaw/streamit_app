@@ -2,6 +2,5 @@ streamlit
 tensorflow==2.15.0
 keras==2.15.0
 numpy
-PIL
-matplotlib
+pillow
 io
