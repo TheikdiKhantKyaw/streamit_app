@@ -8,26 +8,26 @@ import io
 # Define constants
 TARGET_SIZE = (224, 224)
 CLASS_LABELS = {0: 'Clams',
- 1: 'Crabs',
- 2: 'Dolphin',
- 3: 'Eel',
- 4: 'Fish',
- 5: 'Jelly Fish',
- 6: 'Lobster',
- 7: 'Octopus',
- 8: 'Otter',
- 9: 'Penguin',
- 10: 'Puffers',
- 11: 'Sea Rays',
- 12: 'Sea Urchins',
- 13: 'Seahorse',
- 14: 'Seal',
- 15: 'Sharks',
- 16: 'Shrimp',
- 17: 'Squid',
- 18: 'Starfish',
- 19: 'Turtle_Tortoise',
- 20: 'Whale'}
+ 1: '🦀 Crabs',
+ 2: '🐬 Dolphin',
+ 3: '🐟 Eel',
+ 4: '🐟 Fish',
+ 5: '🪼 Jelly Fish',
+ 6: '🦞 Lobster',
+ 7: '🐙 Octopus',
+ 8: '🦦 Otter',
+ 9: '🐧 Penguin',
+ 10: '🐡 Puffers',
+ 11: '🐠 Sea Rays',
+ 12: '✴ Sea Urchins',
+ 13: '🌊🐴 Seahorse',
+ 14: '🦭 Seal',
+ 15: '🦈 Sharks',
+ 16: '🦐 Shrimp',
+ 17: '🦑 Squid',
+ 18: '⭐ Starfish',
+ 19: '🐢 Turtle_Tortoise',
+ 20: '🐳 Whale'}
 
 # Load the pre-trained model
 model_path = 'my_model.h5'
@@ -71,12 +71,10 @@ def predict_image(model, image, class_labels):
 uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
-    bytes_data = uploaded_file.getvalue()
-    image = Image.open(io.BytesIO(bytes_data))
-    image = np.array(image)
-
+    image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded Image.', use_column_width=True)
+    image = np.array(image)
 
     predicted_label = predict_image(model, image, CLASS_LABELS)
 
-    st.text(f"It is the: {predicted_label}")
+    st.text(f"It is {predicted_label}")
